@@ -78,8 +78,8 @@ function App() {
   };
   return <div>
     {mainHeader()}
-    <ToastContainer/>
-  </div>;  
+    
+  </div>;
 }
 
 export default App;
