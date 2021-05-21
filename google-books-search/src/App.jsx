@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {InputGroup, Input, InputGroupAddon} from 'reactstrap';
+import {InputGroup, Input, InputGroupAddon, Button, FormGroup, Label} from 'reactstrap';
 
 function App() {
   const mainHeader = () => {
@@ -15,11 +15,16 @@ function App() {
           <InputGroup size='lg' className='mb-3'>
             <Input placeholder='Book Search'/>
             <InputGroupAddon addonType='append'>
-              <button color='secondary'>
+              <Button color='secondary'>
                 <i className='fas fa-search'></i>
-              </button>  
+              </Button>  
             </InputGroupAddon>
           </InputGroup>
+          <div className="d-flex text-white justify-content-center">
+            <FormGroup className='ml-5'>
+              <Label></Label>
+            </FormGroup>
+          </div>
           
         </div>
       </div>
