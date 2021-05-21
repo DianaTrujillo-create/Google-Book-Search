@@ -25,11 +25,16 @@ function App() {
       toast.error('max results must be between 1 and 40');
     } else {
       axios
-        .get(
-
-        )
+      .get(
+      'https://www.googleapis.com/books/v1/volumes?q=search+terms'
+      )
+      .then(res => {
+        if (startIndex >= res.data.totalItems) console.log(res.data);
+      }).catch(err => {
+        console.log(err)
+      });
     }
-  }
+  };
   const mainHeader = () => {
     return (
       <div className= 'main-image d-flex justify-content-center align-items-center flex-column'>
