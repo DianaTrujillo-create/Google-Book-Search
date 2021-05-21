@@ -26,10 +26,17 @@ function App() {
     } else {
       axios
       .get(
-      'https://www.googleapis.com/books/v1/volumes?q=search+terms'
+      // eslint-disable-next-line no-template-curly-in-string
+      'https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResults}&startIndex=${startIndex}'
       )
       .then(res => {
-        if (startIndex >= res.data.totalItems) console.log(res.data);
+        if (startIndex >= res.data.totalItems || startIndex < 1) {
+          toast.error(
+            // eslint-disable-next-line no-template-curly-in-string
+            'max results must be between 1 and ${res.data.totalItems}'
+          );
+        } 
+        console.log(res.data);
       }).catch(err => {
         console.log(err)
       });
